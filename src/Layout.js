@@ -19,9 +19,9 @@ function Dashboard() {
   return <Typography variant="h4">Dashboard Page</Typography>;
 }
 
-// function Analytics() {
-//   return <Typography variant="h4">Analytics Page</Typography>;
-// }
+function Analytics() {
+  return <Typography variant="h4">Analytics Page</Typography>;
+}
 
 const drawerWidth = 240;
 
