@@ -19,9 +19,9 @@ function Dashboard() {
   return <Typography variant="h4">Dashboard Page</Typography>;
 }
 
-function Analytics() {
-  return <Typography variant="h4">Analytics Page</Typography>;
-}
+// function Analytics() {
+//   return <Typography variant="h4">Analytics Page</Typography>;
+// }
 
 const drawerWidth = 240;
 
@@ -34,7 +34,7 @@ export default function Layout() {
   { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
   { text: "Orders", icon: <ShoppingCartIcon />, path: "/orders" },
   { text: "RO Systems", icon: <OpacityIcon />, path: "/ro" },
-  { text: "Analytics", icon: <BarChartIcon />, path: "/analytics" }
+  { text: "Water Meter", icon: <BarChartIcon />, path: "/water" }
 ];
 
 
@@ -86,7 +86,7 @@ export default function Layout() {
   <Route path="/" element={<Dashboard />} />
   <Route path="/orders" element={<Orders />} />
   <Route path="/ro" element={<ROSystems />} />
-  <Route path="/analytics" element={<Analytics />} />
+  <Route path="/water" element={<Watermeter />} />
 </Routes>
 
       </Box>
