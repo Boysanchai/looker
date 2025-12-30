@@ -1,6 +1,6 @@
 import { Box, Typography, Paper } from "@mui/material";
 
-export default function Annual PlanFor2026() {
+export default function AnnualPlanFor() {
   return (
     <Box sx={{ height: "100%" }}>
       <Typography variant="h5" fontWeight={600} mb={1}>
