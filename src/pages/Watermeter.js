@@ -11,7 +11,7 @@ export default function Watermeter() {
         <iframe
           title="Water Meter"
           src="https://lookerstudio.google.com/embed/reporting/bd720cfe-35ff-416d-a91d-b9c11e8d8546/page/TWTfF"
-          style={{ width: "100%", height: "80%", border: "none" }}
+          style={{ width: "100%", height: "95%", border: "none" }}
           allowFullScreen
         />
       </Paper>
