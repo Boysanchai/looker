@@ -7,7 +7,7 @@ import {
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import WaterIcon from '@mui/icons-material/Water';
 import BarChartIcon from "@mui/icons-material/BarChart";
 import MenuIcon from "@mui/icons-material/Menu";
 import OpacityIcon from "@mui/icons-material/Opacity";
@@ -43,7 +43,7 @@ export default function Layout() {
 
   const menu = [
     { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
-    { text: "Orders", icon: <ShoppingCartIcon />, path: "/orders" },
+    { text: "Orders", icon: <WaterIcon />, path: "/orders" },
     { text: "RO Systems", icon: <OpacityIcon />, path: "/ro" },
     { text: "Water Meter", icon: <BarChartIcon />, path: "/water" },
     { text: "Air Compressor", icon: <DashboardIcon />, path: "/aircompressor" }
