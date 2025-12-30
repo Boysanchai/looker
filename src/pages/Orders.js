@@ -11,7 +11,7 @@ export default function Orders() {
         <iframe
           title="Orders Report"
           src="https://lookerstudio.google.com/embed/reporting/3a960143-c7fb-464a-b66c-ffcce7b20777/page/TWTfF"
-          style={{ width: "80%", height: "50%", border: "none" }}
+          style={{ width: "80%", height: "80%", border: "none" }}
           allowFullScreen
         />
       </Paper>
