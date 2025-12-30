@@ -11,7 +11,7 @@ export default function AnnualPlanFor() {
         <iframe
           title="Annual PlanFor2026 Report"
           src="https://lookerstudio.google.com/embed/reporting/3a960143-c7fb-464a-b66c-ffcce7b20777/page/TWTfF"
-          style={{ width: "100%", height: "80%", border: "none" }}
+          style={{ width: "100%", height: "95%", border: "none" }}
           allowFullScreen
         />
       </Paper>
