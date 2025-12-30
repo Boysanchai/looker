@@ -13,6 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import CastIcon from '@mui/icons-material/Cast';
 
 import ROSystems from "./pages/ROSystems";
 import AirCompressor from "./pages/Aircompressor";
@@ -46,7 +47,7 @@ export default function Layout() {
     { text: "Orders", icon: <WaterIcon />, path: "/orders" },
     { text: "RO Systems", icon: <OpacityIcon />, path: "/ro" },
     { text: "Water Meter", icon: <BarChartIcon />, path: "/water" },
-    { text: "Air Compressor", icon: <DashboardIcon />, path: "/aircompressor" }
+    { text: "Air Compressor", icon: <CastIcon />, path: "/aircompressor" }
   ];
 
   return (
