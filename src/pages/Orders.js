@@ -2,7 +2,7 @@ import { Box, Typography, Paper } from "@mui/material";
 
 export default function Orders() {
   return (
-    <Box sx={{ height: "95%" }}>
+    <Box sx={{ height: "100%" }}>
       <Typography variant="h5" fontWeight={600} mb={1}>
         Orders Dashboard
       </Typography>
