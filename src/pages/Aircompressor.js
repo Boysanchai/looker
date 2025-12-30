@@ -11,7 +11,7 @@ export default function AirCompressor() {
         <iframe
           title="Air Compressor Report"
           src="https://lookerstudio.google.com/embed/reporting/3950ad05-4966-4de7-a06d-5e4c6de7697a/page/TWTfF"
-          style={{ width: "100%", height: "80%", border: "none" }}
+          style={{ width: "100%", height: "95%", border: "none" }}
           allowFullScreen
         />
       </Paper>
