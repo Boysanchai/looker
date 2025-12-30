@@ -11,17 +11,17 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import MenuIcon from "@mui/icons-material/Menu";
 import ROSystems from "./pages/ROSystems";
 import OpacityIcon from "@mui/icons-material/Opacity";
-
-import Orders from "./pages/water";
+import AirCompressor from "./pages/Aircompressor";
+import Watermeter from "./pages/Watermeter";
 import Orders from "./pages/Orders";
 
 function Dashboard() {
   return <Typography variant="h4">Dashboard Page</Typography>;
 }
 
-function Analytics() {
-  return <Typography variant="h4">Analytics Page</Typography>;
-}
+// function Analytics() {
+//   return <Typography variant="h4">Analytics Page</Typography>;
+// }
 
 const drawerWidth = 240;
 
@@ -35,7 +35,7 @@ export default function Layout() {
   { text: "Orders", icon: <ShoppingCartIcon />, path: "/orders" },
   { text: "RO Systems", icon: <OpacityIcon />, path: "/ro" },
   { text: "Water Meter", icon: <BarChartIcon />, path: "/water" },
-  { text: "Wat", icon: <DashboardIcon />, path: "/" }
+  { text: "Air Compressor", icon: <DashboardIcon />, path: "/aircompressor" }
 ];
 
 
@@ -88,6 +88,7 @@ export default function Layout() {
   <Route path="/orders" element={<Orders />} />
   <Route path="/ro" element={<ROSystems />} />
   <Route path="/water" element={<Watermeter />} />
+  <Route path="/aircompressor" element={<AirCompressor />} />
 </Routes>
 
       </Box>
