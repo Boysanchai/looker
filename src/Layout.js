@@ -34,7 +34,8 @@ export default function Layout() {
   { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
   { text: "Orders", icon: <ShoppingCartIcon />, path: "/orders" },
   { text: "RO Systems", icon: <OpacityIcon />, path: "/ro" },
-  { text: "Water Meter", icon: <BarChartIcon />, path: "/water" }
+  { text: "Water Meter", icon: <BarChartIcon />, path: "/water" },
+  { text: "Wat", icon: <waterIcon />, path: "/" }
 ];
 
 
