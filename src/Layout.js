@@ -18,7 +18,7 @@ import CastIcon from '@mui/icons-material/Cast';
 import ROSystems from "./pages/ROSystems";
 import AirCompressor from "./pages/Aircompressor";
 import Watermeter from "./pages/Watermeter";
-import Annual PlanFor2026 from "./pages/Annual PlanFor2026";
+import AnnualPlanFor from "./pages/AnnualPlanFor";
 import Dashboard from "./pages/Dashboard";
 
 const drawerWidth = 240;
@@ -44,7 +44,7 @@ export default function Layout() {
 
   const menu = [
     { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
-    { text: "Annual PlanFor2026", icon: <WaterIcon />, path: "/orders" },
+    { text: "Annual PlanFor2026", icon: <WaterIcon />, path: "/AnnualPlanFor" },
     { text: "RO Systems", icon: <OpacityIcon />, path: "/ro" },
     { text: "Water Meter", icon: <BarChartIcon />, path: "/water" },
     { text: "Air Compressor", icon: <CastIcon />, path: "/aircompressor" }
@@ -143,7 +143,7 @@ export default function Layout() {
         }}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/orders" element={<Annual PlanFor2026 />} />
+            <Route path="/AnnualPlanFor" element={<AnnualPlanFor />} />
             <Route path="/ro" element={<ROSystems />} />
             <Route path="/water" element={<Watermeter />} />
             <Route path="/aircompressor" element={<AirCompressor />} />
