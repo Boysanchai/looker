@@ -18,12 +18,10 @@ import ROSystems from "./pages/ROSystems";
 import AirCompressor from "./pages/Aircompressor";
 import Watermeter from "./pages/Watermeter";
 import Orders from "./pages/Orders";
-
-function Dashboard() {
-  return <Typography variant="h4">Dashboard Page</Typography>;
-}
+import Dashboard from "./pages/Dashboard";
 
 const drawerWidth = 240;
+const collapsedWidth = 64;
 
 export default function Layout() {
   const [open, setOpen] = useState(true);
@@ -55,28 +53,33 @@ export default function Layout() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", width: "100vw", height: "100vh" }}>
+
+        {/* AppBar */}
         <AppBar
-  position="fixed"
-  sx={{
-    background: "linear-gradient(90deg, #1e3a8a, #2563eb)",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.25)"
-  }}
->
+          position="fixed"
+          sx={{
+            zIndex: 1201,
+            background: "linear-gradient(90deg, #1e3a8a, #2563eb)",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.25)"
+          }}
+        >
           <Toolbar>
-                      <IconButton
-            onClick={() => setOpen(!open)}
-            sx={{
-              color: "#fff",
-              bgcolor: "rgba(255,255,255,0.15)",
-              "&:hover": { bgcolor: "rgba(255,255,255,0.25)" }
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
+            <IconButton
+              onClick={() => setOpen(!open)}
+              sx={{
+                color: "#fff",
+                mr: 2,
+                bgcolor: "rgba(255,255,255,0.18)",
+                "&:hover": { bgcolor: "rgba(255,255,255,0.28)" }
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
 
-
-            <Typography sx={{ flexGrow: 1 }}>Admin Dashboard</Typography>
+            <Typography sx={{ flexGrow: 1, fontWeight: 600 }}>
+              Admin Dashboard
+            </Typography>
 
             <LightModeIcon />
             <Switch
@@ -87,46 +90,56 @@ export default function Layout() {
           </Toolbar>
         </AppBar>
 
+        {/* Sidebar */}
         <Drawer
-  variant="persistent"
-  open={open}
-  sx={{
-    width: open ? drawerWidth : 64,
-    "& .MuiDrawer-paper": {
-      width: open ? drawerWidth : 64,
-      transition: "0.3s",
-      borderRight: "1px solid rgba(0,0,0,0.08)",
-      background:
-        mode === "light"
-          ? "linear-gradient(180deg, #ffffff, #f1f5f9)"
-          : "linear-gradient(180deg, #020617, #020617)"
-    }
-  }}
->
-
-          <Toolbar />
+          variant="persistent"
+          open={open}
+          sx={{
+            width: open ? drawerWidth : collapsedWidth,
+            "& .MuiDrawer-paper": {
+              width: open ? drawerWidth : collapsedWidth,
+              top: 64,
+              height: "calc(100% - 64px)",
+              transition: "0.3s",
+              overflowX: "hidden",
+              borderRight: "1px solid rgba(0,0,0,0.08)",
+              background:
+                mode === "light"
+                  ? "linear-gradient(180deg, #ffffff, #f1f5f9)"
+                  : "linear-gradient(180deg, #020617, #020617)"
+            }
+          }}
+        >
           <List>
             {menu.map(item => (
               <ListItemButton
                 key={item.text}
                 selected={location.pathname === item.path}
                 onClick={() => navigate(item.path)}
+                sx={{
+                  py: 1.2,
+                  "&.Mui-selected": {
+                    bgcolor: "rgba(37,99,235,0.15)"
+                  }
+                }}
               >
-                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemIcon sx={{ minWidth: 40 }}>{item.icon}</ListItemIcon>
                 {open && <ListItemText primary={item.text} />}
               </ListItemButton>
             ))}
           </List>
         </Drawer>
 
+        {/* Main */}
         <Box component="main" sx={{
           flexGrow: 1,
-          height: "100vh",
-          p: 2,
-          ml: open ? `${drawerWidth}px` : "64px",
-          transition: "0.3s"
+          minHeight: "100vh",
+          pt: "64px",
+          pl: open ? `${drawerWidth}px` : `${collapsedWidth}px`,
+          pr: 2,
+          transition: "0.3s",
+          overflow: "auto"
         }}>
-          <Toolbar />
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/orders" element={<Orders />} />
@@ -135,6 +148,7 @@ export default function Layout() {
             <Route path="/aircompressor" element={<AirCompressor />} />
           </Routes>
         </Box>
+
       </Box>
     </ThemeProvider>
   );
