@@ -56,7 +56,13 @@ export default function Layout() {
       <CssBaseline />
 
       <Box sx={{ display: "flex" }}>
-        <AppBar position="fixed">
+        <AppBar
+  position="fixed"
+  sx={{
+    background: "linear-gradient(90deg, #1e3a8a, #2563eb)",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.25)"
+  }}
+>
           <Toolbar>
                       <IconButton
             onClick={() => setOpen(!open)}
@@ -81,13 +87,23 @@ export default function Layout() {
           </Toolbar>
         </AppBar>
 
-        <Drawer variant="persistent" open={open} sx={{
-          width: open ? drawerWidth : 64,
-          "& .MuiDrawer-paper": {
-            width: open ? drawerWidth : 64,
-            transition: "0.3s"
-          }
-        }}>
+        <Drawer
+  variant="persistent"
+  open={open}
+  sx={{
+    width: open ? drawerWidth : 64,
+    "& .MuiDrawer-paper": {
+      width: open ? drawerWidth : 64,
+      transition: "0.3s",
+      borderRight: "1px solid rgba(0,0,0,0.08)",
+      background:
+        mode === "light"
+          ? "linear-gradient(180deg, #ffffff, #f1f5f9)"
+          : "linear-gradient(180deg, #020617, #020617)"
+    }
+  }}
+>
+
           <Toolbar />
           <List>
             {menu.map(item => (
