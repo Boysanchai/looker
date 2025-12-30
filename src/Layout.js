@@ -58,9 +58,17 @@ export default function Layout() {
       <Box sx={{ display: "flex" }}>
         <AppBar position="fixed">
           <Toolbar>
-            <IconButton color="inherit" onClick={() => setOpen(!open)}>
-              <MenuIcon />
-            </IconButton>
+                      <IconButton
+            onClick={() => setOpen(!open)}
+            sx={{
+              color: "#fff",
+              bgcolor: "rgba(255,255,255,0.15)",
+              "&:hover": { bgcolor: "rgba(255,255,255,0.25)" }
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+
 
             <Typography sx={{ flexGrow: 1 }}>Admin Dashboard</Typography>
 
