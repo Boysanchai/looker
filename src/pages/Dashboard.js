@@ -1,92 +1,99 @@
-import { Box, Typography, Paper, Container, Stack, Button } from "@mui/material";
-import DashboardIcon from '@mui/icons-material/Dashboard'; // อิมพอร์ตไอคอนมาตกแต่งเพิ่ม (ถ้ามี mui/icons)
+import { Box, Typography, Container, Chip, Paper } from "@mui/material";
+import CircleIcon from '@mui/icons-material/Circle'; // ใช้แสดงสถานะ Online
 
-// *** สำคัญ: เปลี่ยน URL นี้เป็น path ของไฟล์รูปภาพของคุณจริง ๆ ***
-// สมมติว่าเป็นโลโก้ที่มีพื้นหลังโปร่งใส (PNG) จะสวยที่สุด
-const logoUrl = "https://placehold.co/500x150/ffffff/005792?text=Plant+Maintenance+BANWA1&font=roboto";
+// โลโก้แบบสีขาว (เพื่อให้ตัดกับพื้นหลังมืด)
+const logoUrl = "https://placehold.co/600x200/0f172a/ffffff?text=BANWA1+MAINTENANCE&font=montserrat";
 
-export default function StylishDashboard() {
+export default function DashboardDarkTech() {
   return (
-    // 1. พื้นหลังแบบไล่เฉดสี (Gradient Background) สีนุ่มๆ
     <Box
       sx={{
-        minHeight: '80vh', // ให้เต็มความสูงหน้าจอโดยประมาณ
-        background: 'linear-gradient(135deg, #e0f2f1 0%, #eef2f3 100%)', // ฟ้าอ่อน -> เทาอ่อน
+        // พื้นหลัง Dark Blue/Slate พร้อม Pattern ตาราง (Grid) จางๆ
+        minHeight: '85vh',
+        backgroundColor: '#0B1120', 
+        backgroundImage: `
+          radial-gradient(at 50% 0%, #1e293b 0%, transparent 70%),
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+        `,
+        backgroundSize: '100% 100%, 40px 40px, 40px 40px', // ขนาดตาราง
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
         alignItems: 'center',
-        p: 3,
-        borderRadius: 4, // ทำมุมมนให้พื้นที่ทำงานหลัก
+        justifyContent: 'center',
+        color: 'white',
+        overflow: 'hidden',
+        position: 'relative'
       }}
     >
-      <Container maxWidth="md">
-        <Stack spacing={4} alignItems="center">
-          
-          {/* ข้อความทักทายด้านบน */}
-          <Stack alignItems="center" spacing={1}>
-            <Typography 
-              variant="h3" 
-              component="h1" 
-              fontWeight={800} 
-              color="primary.dark"
-              sx={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}
-            >
-              Welcome
-            </Typography>
-            <Typography variant="h6" color="text.secondary" fontWeight={400}>
-              Internal Maintenance Management System
-            </Typography>
-          </Stack>
+      {/* แสง Glow ด้านหลังโลโก้ */}
+      <Box 
+        sx={{
+          position: 'absolute',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0,0,0,0) 70%)',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 0
+        }}
+      />
 
-          {/* 2. กล่องใส่โลโก้แบบ Glassmorphism (กระจกฝ้า) */}
-          <Paper
-            elevation={0}
-            sx={{
-              p: 5,
-              width: '100%',
-              maxWidth: 600,
-              textAlign: 'center',
-              // เทคนิคทำกระจกฝ้า
-              background: 'rgba(255, 255, 255, 0.4)', 
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.6)',
-              borderRadius: 5, // มุมมนเยอะหน่อย ดูนุ่มนวล
-              boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)', // เงาฟุ้งๆ
-            }}
-          >
+      <Container maxWidth="md" sx={{ zIndex: 1, position: 'relative' }}>
+        <Box 
+          sx={{ 
+            textAlign: 'center',
+            animation: 'fadeInUp 1s ease-out' // เพิ่ม Animation ตอนโหลด
+          }}
+        >
+          {/* สถานะระบบ (System Status) */}
+          <Chip 
+            icon={<CircleIcon sx={{ fontSize: '10px !important', color: '#4ade80 !important' }} />} 
+            label="System Operational" 
+            variant="outlined"
+            sx={{ 
+              color: '#94a3b8', 
+              borderColor: 'rgba(255,255,255,0.1)', 
+              mb: 4,
+              backgroundColor: 'rgba(255,255,255,0.02)',
+              backdropFilter: 'blur(4px)'
+            }} 
+          />
+
+          {/* ส่วนแสดงโลโก้ */}
+          <Box sx={{ position: 'relative', display: 'inline-block' }}>
             <Box
               component="img"
               src={logoUrl}
-              alt="Plant Maintenance BANWA1 Logo"
+              alt="Plant Maintenance BANWA1"
               sx={{
                 maxWidth: '100%',
                 height: 'auto',
-                maxHeight: '120px', // จำกัดความสูงไม่ให้ใหญ่เกินไป
-                // เพิ่ม filter เล็กน้อยเพื่อให้รูปดูเคลียร์ (ถ้าเป็น PNG)
-                filter: 'drop-shadow(0px 4px 4px rgba(0,0,0,0.1))',
+                maxHeight: '180px',
+                filter: 'drop-shadow(0 0 20px rgba(56, 189, 248, 0.3))', // เงาเรืองแสงสีฟ้า
+                mb: 2
               }}
             />
-          </Paper>
+          </Box>
 
-          {/* เพิ่มปุ่ม Action ด้านล่าง เพื่อให้หน้าจอดูมีอะไรทำ (Optional) */}
-          {/* <Button 
-            variant="contained" 
-            size="large" 
-            startIcon={<DashboardIcon />}
-            sx={{ 
-              borderRadius: 10, 
-              px: 4, py: 1.5,
-              boxShadow: '0 4px 14px 0 rgba(0, 118, 255, 0.39)'
-            }}
-          >
-            Go to Main Dashboard
-          </Button> 
-          */}
+          <Typography variant="h6" sx={{ color: '#64748b', letterSpacing: '2px', textTransform: 'uppercase', mt: 3, fontSize: '0.9rem' }}>
+            Internal Maintenance Management System
+          </Typography>
+          
+          <Typography variant="caption" sx={{ display:'block', color: '#475569', mt: 8 }}>
+            © 2024 BANWA1 Plant. All rights reserved.
+          </Typography>
 
-        </Stack>
+        </Box>
       </Container>
+      
+      {/* CSS Animation สำหรับการเลื่อนขึ้น */}
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </Box>
   );
 }
